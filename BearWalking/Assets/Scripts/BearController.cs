@@ -7,16 +7,31 @@ public class BearController : MonoBehaviour
     private float speed = 3f;
     private float verticalInput = 0f;
     private Rigidbody bearRigidbody;
+    private bool isStop;
 
     // Start is called before the first frame update
     void Start()
     {
         bearRigidbody = GetComponent<Rigidbody>();
+        isStop = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (isStop)
+        {
+            return;
+        }
+
+        if (transform.position.y < 0.5)
+        {
+            isStop = true;
+            GameObject gameSceneController = GameObject.Find("GameSceneController");
+            GameSceneController script = gameSceneController.GetComponent<GameSceneController>();
+            script.OnFailed();
+        }
+
         verticalInput = Input.GetAxis("Vertical");
 
         if (Input.GetKey("right"))
