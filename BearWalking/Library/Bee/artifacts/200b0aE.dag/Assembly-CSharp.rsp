@@ -352,6 +352,7 @@
 -analyzer:"/Applications/Unity/Hub/Editor/2022.3.7f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/Scripts/BearController.cs"
 "Assets/Scripts/GameSceneController.cs"
+"Assets/Scripts/Item.cs"
 "Assets/Scripts/MoveRoad.cs"
 "Assets/Scripts/Obstacle.cs"
 -langversion:9.0
