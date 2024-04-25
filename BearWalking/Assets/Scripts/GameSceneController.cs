@@ -6,7 +6,7 @@ using TMPro;
 
 public class GameSceneController : MonoBehaviour
 {
-    private int score;
+    public static int score = 0;
     private TextMeshProUGUI scoreText;
 
     // Start is called before the first frame update
@@ -37,5 +37,18 @@ public class GameSceneController : MonoBehaviour
     {
         score += num;
         scoreText.text = score.ToString();
+    }
+
+    public void OnGoal()
+    {
+        GameObject bear = GameObject.Find("Bear@Walking");
+        BearController script = bear.GetComponent<BearController>();
+        script.OnStop();
+        Invoke("OnLoadResultScene", 1.5f);
+    }
+
+    private void OnLoadResultScene()
+    {
+        SceneManager.LoadScene("ResultScene");
     }
 }

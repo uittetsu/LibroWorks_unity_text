@@ -54,4 +54,9 @@ public class BearController : MonoBehaviour
             bearRigidbody.AddForce(moveVector, ForceMode.Impulse);
         }
     }
+
+    public void OnStop()
+    {
+        isStop = true;
+    }
 }
